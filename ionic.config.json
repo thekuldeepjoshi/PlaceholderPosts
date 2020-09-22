@@ -1,0 +1,7 @@
+{
+  "name": "PlaceholderPosts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
