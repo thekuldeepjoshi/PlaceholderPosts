@@ -1,20 +1,13 @@
-<ion-header>
-  <ion-toolbar>
+<ion-tabs>
+    <ion-tab-bar slot="top">
+        <ion-tab-button tab="tabuserpost">
+            <ion-icon name="person-circle"></ion-icon>
+            <ion-label>User's post</ion-label>
+        </ion-tab-button>
 
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>New page</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Log In
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+        <ion-tab-button tab="tabmorepost">
+            <ion-icon name="people-circle-outline"></ion-icon>
+            <ion-label>More posts</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>

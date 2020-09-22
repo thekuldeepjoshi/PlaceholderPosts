@@ -6,6 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    children: [
+  {
+     path: 'tabuserpost',
+     loadChildren: () => import('../tabuserpost/tabuserpost.module').then( m => m.TabuserpostPageModule)
+   },
+     {
+       path: 'tabmorepost',
+       loadChildren: () => import('../tabmorepost/tabmorepost.module').then( m => m.TabmorepostPageModule)
+     },
+    ]
   }
 ];
 
