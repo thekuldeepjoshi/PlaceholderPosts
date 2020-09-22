@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>Log in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-list-header lines="full">
+    <ion-label>
+      Welcome to JSON Placeholder posts
+    </ion-label>
+  </ion-list-header>
+
+  <div id="container">
+
+    <ion-item lines="full">
+      <ion-label position="floating" >Email</ion-label>
+      <br>
+      <ion-input type="email" placeholder="eg: Sincere@april.biz" required></ion-input>
+    </ion-item>
+    <br><br>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="LoginCheck()" expand="block" color="danger">Log In</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>
+
+
+
+
+
