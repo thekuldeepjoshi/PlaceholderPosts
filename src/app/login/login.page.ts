@@ -13,17 +13,18 @@ import { DataService } from '../services/data.service';
 })
 export class LoginPage implements OnInit {
   url = `https://jsonplaceholder.typicode.com/users?email=`;
+  // get email from input
 get email() {
     return this.LoginForm.get('email');
   }
-
+// error message to display when user enters wrong text int the input
    public errorMessages = {
     email: [
           { type: 'required', message: 'Email is required' },
           { type: 'pattern', message: 'Please enter a valid email address' }
         ],
 };
-
+// code for email validation
 LoginForm = this.formBuilder.group({
    email: [
          '',
@@ -42,7 +43,7 @@ LoginForm = this.formBuilder.group({
 
   LoginCheck(){
     this.http.get(this.url+this.LoginForm.value.email).toPromise().then(data => {
-
+        // get user data from url and match it with the email address provided. 
                   if (data.hasOwnProperty(0)){
                    let navigationExtras: NavigationExtras = {
                         state: {

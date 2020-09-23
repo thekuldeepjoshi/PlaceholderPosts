@@ -16,7 +16,7 @@ export class TabmorepostPage implements OnInit {
     url_users = `https://jsonplaceholder.typicode.com/users`;
 
   constructor(private http: HttpClient) {
-  this.GetUsers();
+  this.GetUsers(); // call to get users function to get users from url_users and loop through each posts from the give user.
   }
   ngOnInit() {
   }
@@ -28,7 +28,7 @@ export class TabmorepostPage implements OnInit {
 
                               this.http.get(this.url_posts+this.user.id).toPromise().then(post => {
                                                               if (post.hasOwnProperty(0)){
-                                                                this.posts = post;
+                                                                this.posts = post; // add data to posts vaible to access in html file.
                                                                 }
 
                                                           });

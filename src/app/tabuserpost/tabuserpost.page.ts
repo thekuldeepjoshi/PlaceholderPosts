@@ -15,8 +15,8 @@ export class TabuserpostPage implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.data = this.router.getCurrentNavigation().extras.state.user;
-        this.GetData(this.data.id);
+        this.data = this.router.getCurrentNavigation().extras.state.user; // get data from router eg email
+        this.GetData(this.data.id); // call to GetData function using url with id provided by user.
       }
     });
 
@@ -27,7 +27,7 @@ export class TabuserpostPage implements OnInit {
    GetData(email){
       this.http.get(this.url+email).toPromise().then(data => {
                             if (data.hasOwnProperty(0)){
-                              this.posts= data;
+                              this.posts= data; // post data into posts varibale to access from page.html file
                               }
 
                         });
