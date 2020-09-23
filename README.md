@@ -16,9 +16,7 @@ Go to your file project (where you've unzipped the product)
 <br>
 In the project directory, Run in terminal:
 
-### `Install npm`
-
-### `ionic serve`
+### `ionic serve` will run the app
 
 
 
