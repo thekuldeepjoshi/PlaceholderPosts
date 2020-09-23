@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { IonicToastService } from '../services/ionic-toast.service';
 import { FormBuilder, Validators } from "@angular/forms";
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginPage implements OnInit {
 get email() {
     return this.LoginForm.get('email');
   }
-  items = [];
+
    public errorMessages = {
     email: [
           { type: 'required', message: 'Email is required' },
@@ -33,20 +34,22 @@ LoginForm = this.formBuilder.group({
        ],
 });
 
-  constructor(private router:Router , private http: HttpClient, private ionicToastService: IonicToastService, private formBuilder: FormBuilder) {
-
+  constructor(private router:Router , private http: HttpClient, private ionicToastService: IonicToastService, private formBuilder: FormBuilder, private dataService: DataService) {
   }
 
   ngOnInit() {
   }
 
   LoginCheck(){
-  console.log(this.LoginForm.value.email);
     this.http.get(this.url+this.LoginForm.value.email).toPromise().then(data => {
-    console.log(data);
+
                   if (data.hasOwnProperty(0)){
-                  this.router.navigate(['/home']);
-                    this.items['email']= data[0];
+                   let navigationExtras: NavigationExtras = {
+                        state: {
+                          user: data[0]
+                        }
+                      };
+                  this.router.navigate(['/home'],navigationExtras);
                     }
                    else{
                        this.ionicToastService.showToast();

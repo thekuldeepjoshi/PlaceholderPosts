@@ -1,17 +1,21 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>More posts</ion-title>
+        <ion-title>Other posts</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-list-header lines="full">
-        <ion-label>
-            Welcome to JSON Placeholder posts
-        </ion-label>
-    </ion-list-header>
+    <div id="container" *ngFor="let user of users">
 
-    <div id="container">
+            <ion-card *ngFor="let post of posts">
+            <ion-card-header>
+                <ion-card-subtitle>{{user.username}}</ion-card-subtitle>
+                <ion-card-title>{{post.title}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                {{post.body}}
+            </ion-card-content>
+            </ion-card>
 
     </div>
 </ion-content>
