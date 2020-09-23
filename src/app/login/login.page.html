@@ -13,11 +13,9 @@
     </ion-list-header>
 
     <div id="container">
-        <form (ngSubmit)="LoginCheck()" [formGroup]="registrationForm" >
+        <form (ngSubmit)="LoginCheck()" [formGroup]="LoginForm" >
 
             <ion-item lines="full">
-
-
                 <ion-label position="floating" >Email</ion-label>
                 <br>
                 <ion-input type="email" formControlName="email"  placeholder="eg: Sincere@april.biz" ></ion-input>
@@ -30,7 +28,7 @@
             <br><br>
             <ion-row>
                 <ion-col>
-                    <ion-button [disabled]="!registrationForm.valid"  type="submit"  expand="block" color="danger">Log In</ion-button>
+                    <ion-button [disabled]="!LoginForm.valid"  type="submit"  expand="block" color="danger">Log In</ion-button>
                 </ion-col>
             </ion-row>
         </form>

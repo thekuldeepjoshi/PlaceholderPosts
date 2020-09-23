@@ -11,8 +11,9 @@ import { FormBuilder, Validators } from "@angular/forms";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  url = `https://jsonplaceholder.typicode.com/users?email=`;
 get email() {
-    return this.registrationForm.get('email');
+    return this.LoginForm.get('email');
   }
   items = [];
    public errorMessages = {
@@ -22,7 +23,7 @@ get email() {
         ],
 };
 
-registrationForm = this.formBuilder.group({
+LoginForm = this.formBuilder.group({
    email: [
          '',
          [
@@ -40,15 +41,15 @@ registrationForm = this.formBuilder.group({
   }
 
   LoginCheck(){
-    
-    this.http.get('https://jsonplaceholder.typicode.com/users?email='+this.registrationForm.value).toPromise().then(data => {
+  console.log(this.LoginForm.value.email);
+    this.http.get(this.url+this.LoginForm.value.email).toPromise().then(data => {
+    console.log(data);
                   if (data.hasOwnProperty(0)){
                   this.router.navigate(['/home']);
                     this.items['email']= data[0];
                     }
                    else{
                        this.ionicToastService.showToast();
-                        console.log('wrong email');
                     }
               });
   }
