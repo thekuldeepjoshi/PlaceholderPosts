@@ -1,23 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-
-    <ion-title>More posts</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>More posts</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list-header lines="full">
-    <ion-label>
-      Welcome to JSON Placeholder posts
-    </ion-label>
-  </ion-list-header>
+    <ion-list-header lines="full">
+        <ion-label>
+            Welcome to JSON Placeholder posts
+        </ion-label>
+    </ion-list-header>
 
-  <div id="container">
+    <div id="container">
 
-
-
-  </div>
+    </div>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-button [routerLink]="['/login']" color="secondary" expand="block"><ion-icon name="exit-outline"></ion-icon>&nbsp; log out</ion-button>
+    </ion-toolbar>
+</ion-footer>
 
 
 
